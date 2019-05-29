@@ -40,10 +40,14 @@ Thumbs.db
 *.pdf
 .classpath
 .project
-
+# Doc files #
+###################
+*.pdf
+*.html
 # IDE files #
 ###################
 .idea/*
+*.iml
 # Directories #
 ###################
 
