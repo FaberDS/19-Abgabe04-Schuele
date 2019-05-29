@@ -1,5 +1,12 @@
 package at.fhj.iit;
 
+/**
+ *
+ *	The Queue interface contain methods to build up a datastructure with the access model of FIFO.
+ *
+ * @version 1.0
+ * @since	29.05.2019
+ */
 public interface Queue {
 	
 	/**

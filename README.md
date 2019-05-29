@@ -46,13 +46,7 @@ Name: | Denis Schüle
 >![error_01 Konstruktor](./media/error_03.png "empty string assignment")
 >
 > **Lösung**:
-> `public String poll() {
->   String element = peek();
->		if(elements.size() > 0){
->			elements.remove(0);
->		}
->		return element;
->	}`
+> `//element = "";`
 ***
 ## Links/ Literatur
 ### Plugins
@@ -67,14 +61,15 @@ configuration-management/tree/master/test-automation/Queue
  - [ ] Taskergebnisse Schritt für Schritt auf Git stellen
    - [ ] Führung Taskliste
    - [ ] Veröffentlichung in Git mit aktuell durchgeführten Tätigkeiten, z.B. Testfälle geschrieben so wird auch in der Taskliste diese Aufgabe als erledigt markiert und Testfälle inkl. geänderter Taskliste ins Repository übertragen.
-- [ ] Korrigieren Sie den Code bzw. Debuggen Sie ihn um die Fehler zu finden
-    - [ ] Es befinden sich gesamt 3 Fehler im Source Code
-    - [ ] Bei Bedarf Optimieren Sie das Queue Beispiel.
-    - [ ] Ergänzen Sie das Beispiel nach eigenen Ermessen um es testen zu können.
+- [x] Korrigieren Sie den Code bzw. Debuggen Sie ihn um die Fehler zu finden
+    - [x] Es befinden sich gesamt 3 Fehler im Source Code
+    - [x] Bei Bedarf Optimieren Sie das Queue Beispiel.
+    - [x] Ergänzen Sie das Beispiel nach eigenen Ermessen um es testen zu können.
+
 - [ ] Erstellen Sie für Klasse und alle Methoden Kommentare um mittels Javadoc eine API Dokumentation zu erzeugen
     - [ ] Integrieren Sie ein Bild (der generierten Dokumentation) in Ihren Report.
 - [ ] Erstellung JUnit Tests (vollständig testen, mehere Varianten)
-    - [ ] Sie werden die "selben" Testfälle mehrfach müssen um "mehrere Variationen" für einen möglichst vollständigen Test zu erreichen. Achten Sie dabei mit unterschiedlichen Daten zu testen.
+    - [ ] Sie werden die "selben" Testfälle mehrfach erstellen müssen um "mehrere Variationen" für einen möglichst vollständigen Test zu erreichen. Achten Sie dabei mit unterschiedlichen Daten zu testen.
     - [ ] JavaDoc Kommentare erstellen.
     - [ ] Integrieren Sie ein Bild (der generierten Dokumentation) in Ihren Report.
 - [ ] Passen Sie Ihr pom.xml auf das Projekt an, damit Sie das Projekt erstellen aber auch Dokumentation generieren können.

@@ -6,7 +6,7 @@
 *.exe
 *.o
 *.so
-.idea/*
+
 # Packages #
 ############
 # it's better to unpack these files and commit the raw source
@@ -19,7 +19,7 @@
 *.rar
 *.tar
 *.zip
-Main.java
+
 # Logs and databases #
 ######################
 *.log
@@ -40,3 +40,11 @@ Thumbs.db
 *.pdf
 .classpath
 .project
+
+# IDE files #
+###################
+.idea/*
+# Directories #
+###################
+
+target/*
