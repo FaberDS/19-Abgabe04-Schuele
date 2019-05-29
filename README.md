@@ -6,7 +6,53 @@ Name: | Denis Schüle
 **url:** | https://github.com/FaberDS/19-Abgabe04-Schuele
 ***
 ## Vorgehen
-1.  To-Do-List übertragen mit MD vertieft
+#### 1.  To-Do-List übertragen mit MD vertieft
+#### 2.  Bug Suche
+> ##### 2.1 Construcor typing error & senseless variable
+>   Ohne Konstruktor ohne Parameter wäre die private maxSize Variable sinnbefreit.
+>   Der angepasste Code ermöglicht es eien maxSize zu übergeben. Wird jedoch kein Parameter übergeben wird die maxSize dieser Queue auf 5 gesetzt.
+>
+>**Problem**:
+>
+>![error_01 Konstruktor](./media/error_01.png "Constructor error")
+>
+> **Lösung**:
+>
+>`public StringQueue(){ this.maxSize = maxSize; }`
+>
+>`public StringQueue(int maxSize){ this.maxSize = maxSize;}`
+
+> ##### 2.2 Equals 0
+> Wenn die size() 0 retourniert soll ein Element gelöscht werden. Diese if Abfrage führt zu einer _IndexOutOfBoundsException_. 
+>
+>**Problem**:
+>
+>![error_01 Konstruktor](./media/error_02.png "Equals 0")
+>
+> **Lösung**:
+> `public String poll() {
+>		String element = peek();
+>		if(elements.size() > 0){
+>			elements.remove(0);
+>		}
+>		return element;
+>	}`
+
+> ##### 2.3 Assign to empty string
+> Wenn dem element "" zugewiesen wird. Ist der return-Wert der Methode immer ""
+>
+>**Problem**:
+>
+>![error_01 Konstruktor](./media/error_03.png "empty string assignment")
+>
+> **Lösung**:
+> `public String poll() {
+>   String element = peek();
+>		if(elements.size() > 0){
+>			elements.remove(0);
+>		}
+>		return element;
+>	}`
 ***
 ## Links/ Literatur
 ### Plugins
