@@ -1,9 +1,20 @@
 # LAB REPORT 19-Abgabe04-Schuele
 ***
-Name: | Denis Schüle
-------|:-------------
-**Abgabe:** | 4
-**url:** | https://github.com/FaberDS/19-Abgabe04-Schuele
+<table>
+    <tr>
+        <td>Name: </td>
+        <td>Denis Schüle </td>
+    </tr>
+    <tr>
+        <td>Abgabe: </td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td>URL: </td>
+        <td>https://github.com/FaberDS/19-Abgabe04-Schuele</td>
+    </tr>
+</table>
+
 ***
 ## Vorgehen
 #### 1.  To-Do-List übertragen mit MD vertieft
@@ -49,6 +60,69 @@ Name: | Denis Schüle
 >
 > **Lösung**:
 > `//element = "";`
+
+>#### 3. Java-Doc Kommentare
+>   Kommentieren der Klasse, des Interfaces und deren Methoden. 
+>   Genutzt wurden folgende Assignments:
+>
+>| Assignment    |   Bedeutung |
+>| ---           |:---      |
+>| @author       |   Autor     |
+>| @since       |   Entstehungsdatum     |
+>| @version       |   aktuelle Versionsnummer >    |
+>| @see       |   Hinweise was auch beachtet >werden soll     |
+>| @param       |   Um den Parameter an die >Methode zu spezifizieren     |
+>| @return       |    Um den Rückgabewert der >Methode zu spezifiezieren     |
+>| @exception      |   Wenn die Methode eine >Exception wirft     |
+>| {@link "classname[#method name]"}       |   >Um einen Link zur Klasse/ Methode(optional) >zu setzen     |
+>| @throws       |   Der Test wirft diese Exception     |
+> **3.1 Eigene Tags**
+>Um eigene Tags für die Java-Docs zu verwenden habe ich folgende Konfiguration innerhalb des Maven-Javadoc Plugins hinzugefügt:
+>```xml
+><configuration>
+>    <tags>
+>      <tag>
+>           <!--@result is replaced true "Test assertion:"-->
+>           <name>result</name>
+>           <placement>a</placement>
+>           <head>Test assertion:</head>
+>        </tag>
+>    </tags>
+></configuration>
+>```
+> **3.2 Java-Doc Screenshot**
+>![Java-Docs](./media/java_doc_productive_code.png)
+
+>#### 4. JUnit Test
+>Schreiben der Tests für die StringQueue Klasse.
+>Um JUnit-Tests schreiben zu können muss im pom.xml folgende Dependency eingefügt >werden:
+>```xml
+><groupId>junit</groupId>
+><artifactId>junit</artifactId>
+><version>4.12</version>
+><scope>test</scope>
+>```
+>Gesamt wurden 25 Tests auf die 5 Methoden der StringQueue Klasse angewendet. Dabei wurden die kritschen Punkte: leere Queue, Exceptions, volle Queue. Detailierter überprüft. Es wurde ein 100% line coverage erreicht, dies muss nicht zwingend immer erreicht werden.
+>
+> **4.1 Verwendete Methoden**
+>   ```java
+>       assert();
+>       assertTrue();
+>       assertFalse();
+>       assertNull();
+>       assertNotNull();
+>       assertEquals();
+>       assertNotSame();
+>```
+>   Um zu überprüffen ob die Methoden `remove()` und `element()`wie in den Testfällen gewünscht eine Exception werfen, wurde folgende Annotation verwendet:
+>```java
+>@Test (expected = Exception-Name.class)
+>```
+> **4.2 Surefire Report Screenshot**
+>![Java-Docs](./media/surefire_report.png)
+
+
+
 ***
 ## Links/ Literatur
 ### Plugins
@@ -57,6 +131,11 @@ Name: | Denis Schüle
 - [github Flavored](https://github.github.com/gfm/)
 - [junit Artikel](http://www.tutego.de/blog/javainsel/2010/04/junit-4-tutorial-java-tests-mit-junit/)
 - [maven tags](https://maven.apache.org/plugins/maven-javadoc-plugin/examples/tag-configuration.html)
+- [tutorials-point Java-doc](https://www.tutorialspoint.com/java/java_documentation.htm)
+- [How to write doc comments](https://www.oracle.com/technetwork/java/javase/documentation/index-137868.html)
+- [Syntax highlighting Markdown](https://support.codebasehq.com/articles/tips-tricks/syntax-highlighting-in-markdown)
+### Documents
+
 ***
 ## To-Do-List:
  - [x] Übertragen Angabe Tasklist in Markdown Readme
@@ -64,18 +143,18 @@ Name: | Denis Schüle
 configuration-management/tree/master/test-automation/Queue
  - [ ] Taskergebnisse Schritt für Schritt auf Git stellen
    - [ ] Führung Taskliste
-   - [ ] Veröffentlichung in Git mit aktuell durchgeführten Tätigkeiten, z.B. Testfälle geschrieben so wird auch in der Taskliste diese Aufgabe als erledigt markiert und Testfälle inkl. geänderter Taskliste ins Repository übertragen.
+   - [x] Veröffentlichung in Git mit aktuell durchgeführten Tätigkeiten, z.B. Testfälle geschrieben so wird auch in der Taskliste diese Aufgabe als erledigt markiert und Testfälle inkl. geänderter Taskliste ins Repository übertragen.
 - [x] Korrigieren Sie den Code bzw. Debuggen Sie ihn um die Fehler zu finden
     - [x] Es befinden sich gesamt 3 Fehler im Source Code
     - [x] Bei Bedarf Optimieren Sie das Queue Beispiel.
     - [x] Ergänzen Sie das Beispiel nach eigenen Ermessen um es testen zu können.
 
-- [ ] Erstellen Sie für Klasse und alle Methoden Kommentare um mittels Javadoc eine API Dokumentation zu erzeugen
-    - [ ] Integrieren Sie ein Bild (der generierten Dokumentation) in Ihren Report.
-- [ ] Erstellung JUnit Tests (vollständig testen, mehere Varianten)
-    - [ ] Sie werden die "selben" Testfälle mehrfach erstellen müssen um "mehrere Variationen" für einen möglichst vollständigen Test zu erreichen. Achten Sie dabei mit unterschiedlichen Daten zu testen.
-    - [ ] JavaDoc Kommentare erstellen.
-    - [ ] Integrieren Sie ein Bild (der generierten Dokumentation) in Ihren Report.
+- [x] Erstellen Sie für Klasse und alle Methoden Kommentare um mittels Javadoc eine API Dokumentation zu erzeugen
+    - [x] Integrieren Sie ein Bild (der generierten Dokumentation) in Ihren Report.
+- [x] Erstellung JUnit Tests (vollständig testen, mehere Varianten)
+    - [x] Sie werden die "selben" Testfälle mehrfach erstellen müssen um "mehrere Variationen" für einen möglichst vollständigen Test zu erreichen. Achten Sie dabei mit unterschiedlichen Daten zu testen.
+    - [x] JavaDoc Kommentare erstellen.
+    - [x] Integrieren Sie ein Bild (der generierten Dokumentation) in Ihren Report.
 - [ ] Passen Sie Ihr pom.xml auf das Projekt an, damit Sie das Projekt erstellen aber auch Dokumentation generieren können.
     - [x] EntwicklerInnen Informationen hinzufügen.
     - [ ] Integration Logging Bibliothek log4j mittels Maven Dependencies.
