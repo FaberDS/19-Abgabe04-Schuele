@@ -256,7 +256,16 @@ public class StringQueueTest {
         sq1.offer("1");
         assertNotNull(sq1.peek());
     }
-
+    /**
+     * Tests to get the peek() from the instance of {@link StringQueue} after {@link StringQueue#offer(String)}ing an element.
+     * @result Is equal, because just own element is added.
+     */
+    @Test
+    public void peek5() {
+        String parameter = "Alle Affen atzen am Affen Ahornbaum!";
+        sq1.offer(parameter);
+        assertEquals(parameter, sq1.peek());
+    }
     /**
      * Test to get the first elemenent of the instance of {@link StringQueue} without {@link StringQueue#offer(String)}ing a element.
      * @result {@link NoSuchElementException} is thrown.
@@ -268,7 +277,7 @@ public class StringQueueTest {
 
     /**
      * Test to get the first elemenent of the instance of{@link StringQueue} after {@link StringQueue#offer(String)}ing one element.
-     * @result {@link NoSuchElementException} is thrown.
+     * @result Is equals, because just one element is added to the queue;
      */
     @Test
     public void element2() {
@@ -291,6 +300,7 @@ public class StringQueueTest {
     /**
      * Tests the Exception message from {@link NoSuchElementException} thrown by {@link StringQueue#element()}
      * @result Is equals.
+     * @exception Exception
      */
     @Test (expected = NoSuchElementException.class)
     public void element4() throws Exception
@@ -306,6 +316,16 @@ public class StringQueueTest {
             throw re;
         }
         fail("Employee Id Null exception did not throw!");
+    }
+    /**
+     * Test to get the first elemenent of the instance of{@link StringQueue} after {@link StringQueue#offer(String)}ing one element.
+     * @result Is equals, because just one element is added to the queue;
+     */
+    @Test
+    public void element5() {
+        String parameter = "Alle Affen atzen am Affen Ahornbaum!";
+        sq1.offer(parameter);
+        assertEquals(parameter, sq1.element());
     }
 
 }
