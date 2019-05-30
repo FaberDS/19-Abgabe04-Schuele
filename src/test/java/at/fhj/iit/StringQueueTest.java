@@ -5,6 +5,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.NoSuchElementException;
+
 import static junit.framework.TestCase.*;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -44,7 +46,7 @@ public class StringQueueTest {
     }
     /**
      * Tests with the default constructor (maxSize=5).
-     * @result Return false beacause passing six Strings.
+     * @result Is false beacause passing six Strings.
      */
     @Test
     public void offer2() {
@@ -57,7 +59,7 @@ public class StringQueueTest {
     }
     /**
      * Tests with the second constructor maxSize is passed as argument (2).
-     * @result Return true because passing two Strings.
+     * @result Is true because passing two Strings.
      */
     @Test
     public void offer3() {
@@ -66,7 +68,7 @@ public class StringQueueTest {
     }
     /**
      * Tests with the second constructor maxSize is passed as argument (2).
-     * @result Return false because passing three Strings.
+     * @result Is false because passing three Strings.
      */
     @Test
     public void offer4() {
@@ -77,7 +79,7 @@ public class StringQueueTest {
 
     /**
      * Tests polling from empty StringQueue.
-     * @result Return true, because the queue is empty.
+     * @result Is null, because the queue is empty.
      */
     @Test
     public void poll() {
@@ -94,7 +96,7 @@ public class StringQueueTest {
     }
     /**
      * Tests polling from StringQueue, after adding and removing one element.
-     * @result Return true, because the queue is empty.
+     * @result Is null, because the queue is empty.
      */
     @Test
     public void poll3() {
@@ -105,7 +107,7 @@ public class StringQueueTest {
 
     /**
      * Tests polling from StringQueue, after adding and removing two element.
-     * @result Return true, because the queue is empty.
+     * @result Is null, because the queue is empty.
      */
     @Test
     public void poll4() {
@@ -119,7 +121,7 @@ public class StringQueueTest {
     }
     /**
      * Tests polling from StringQueue, after adding one element.
-     * @result Return true, because we offer() an element and get the same back.
+     * @result Is equals, because we offer() an element and get the same back.
      */
     @Test
     public void poll5(){
@@ -129,7 +131,7 @@ public class StringQueueTest {
     }
     /**
      * Tests polling if the StringQueue is working like the FIFO principal, by adding three elements.
-     * @result Return true, because the first offered parameter is tested and the queue works like the FIFO principal.
+     * @result Is equals, because the first offered parameter is tested and the queue works like the FIFO principal.
      */
     @Test
     public void poll6(){
@@ -140,12 +142,69 @@ public class StringQueueTest {
         assertEquals(parameter1, sq1.poll());
     }
     /**
-     *
+     * Tests polling from StringQueue, after adding one element.
+     * @result Is equals, because we offer() an element and get the same back.
      */
     @Test
-    public void remove() {
+    public void remove(){
+        String parameter = "1";
+        sq1.offer(parameter);
+        assertEquals(parameter, sq1.poll());
+    }
+    /**
+     * Tests polling from StringQueue, after adding two elements.
+     * @result Is not same, because after offering two elements we we compare the first passed parmeter.
+     */
+    @Test
+    public void remove2(){
+        String parameter = "2";
+        sq1.offer("1");
+        sq1.offer(parameter);
+        assertNotSame(parameter, sq1.poll());
     }
 
+    /**
+     * Tests to remove from empty StringQueue.
+     * @result {@link NoSuchElementException} is thrown.
+     */
+    @Test (expected = NoSuchElementException.class)
+    public void remove3(){
+        sq1.remove();
+    }
+    /**
+     * Tests to remove more elements from  StringQueue than offered.
+     * @result {@link NoSuchElementException} is thrown.
+     */
+    @Test (expected = NoSuchElementException.class)
+    public void remove4(){
+        sq1.offer("1");
+        sq1.offer("2");
+        sq1.offer("3");
+        sq1.remove();
+        sq1.remove();
+        sq1.remove();
+        sq1.remove();
+    }
+
+    /**
+     * Tests the Exception message from NoSuchElementException thrown by StringQueue.remove()
+     * @result Is equals.
+     */
+    @Test (expected = NoSuchElementException.class)
+    public void remove5()
+    {
+        try
+        {
+            sq1.remove();
+        }
+        catch(RuntimeException re)
+        {
+            String message = "there's no element any more";
+            assertEquals(message, re.getMessage());
+            throw re;
+        }
+        fail("Employee Id Null exception did not throw!");
+    }
     @Test
     public void peek() {
 
