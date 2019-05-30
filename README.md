@@ -249,7 +249,7 @@ Mithilfe von Maven Site lassen sich die erzeugten Daten angemessen repräsentier
 >   **6.3 Ergebnis**
 > ![Screenshot of the manual created maven site](media/maven_site.png)
 
-####7. Markdown Übung
+#### 7. Markdown Übung
 Github Flavor ist einer der meist verwendeten Markdown Dialekte. Er legt die Syntax und Semantic fest und wird auf den github domains verwendet.
 > **7.1 Java Code**
 > ```java
