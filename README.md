@@ -61,10 +61,10 @@
 > **Lösung**:
 > `//element = "";`
 
->#### 3. Java-Doc Kommentare
->   Kommentieren der Klasse, des Interfaces und deren Methoden. 
->   Genutzt wurden folgende Assignments:
->
+#### 3. Java-Doc Kommentare
+    Kommentieren der Klasse, des Interfaces und deren Methoden. 
+    
+>**Genutzt Assignments**:
 >| Assignment    |   Bedeutung |
 >| ---           |:---      |
 >| @author       |   Autor     |
@@ -76,6 +76,7 @@
 >| @exception      |   Wenn die Methode eine >Exception wirft     |
 >| {@link "classname[#method name]"}       |   >Um einen Link zur Klasse/ Methode(optional) >zu setzen     |
 >| @throws       |   Der Test wirft diese Exception     |
+
 > **3.1 Eigene Tags**
 >Um eigene Tags für die Java-Docs zu verwenden habe ich folgende Konfiguration innerhalb des Maven-Javadoc Plugins hinzugefügt:
 >```xml
@@ -90,11 +91,12 @@
 >    </tags>
 ></configuration>
 >```
+
 > **3.2 Java-Doc Screenshot**
 >![Java-Docs](./media/java_doc_productive_code.png)
 
->#### 4. JUnit Test
->Schreiben der Tests für die StringQueue Klasse.
+#### 4. JUnit Test
+Schreiben der Tests für die StringQueue Klasse.
 >Um JUnit-Tests schreiben zu können muss im pom.xml folgende Dependency eingefügt >werden:
 >```xml
 ><groupId>junit</groupId>
@@ -103,7 +105,7 @@
 ><scope>test</scope>
 >```
 >Gesamt wurden 25 Tests auf die 5 Methoden der StringQueue Klasse angewendet. Dabei wurden die kritschen Punkte: leere Queue, Exceptions, volle Queue. Detailierter überprüft. Es wurde ein 100% line coverage erreicht, dies muss nicht zwingend immer erreicht werden.
->
+
 > **4.1 Verwendete Methoden**
 >   ```java
 >       assert();
@@ -118,10 +120,28 @@
 >```java
 >@Test (expected = Exception-Name.class)
 >```
-> **4.2 Surefire Report Screenshot**
+
+>**4.2 Surefire Report Screenshot**
 >![Java-Docs](./media/surefire_report.png)
 
-
+####5. Log4j2
+Der Log4j2 ermöglicht das loggen während eine Java Application läuft.
+Der Logger kann mittels .xml oder .properties File konfiguriert werden ich verwende letzteres.
+>   **5.1 Vorraussetzungen**
+>   Im main Ordner wird der resource Ordner mit dem Log4j2.properties File benötigt. 
+>   _Erforderliche für pom.xml Dependencies:_
+>```xml
+><dependency>
+>   <groupId>org.apache.logging.log4j</groupId>
+>   <artifactId>log4j-api</artifactId>
+>   <version>2.11.1</version>
+></dependency> 
+><dependency>
+>   <groupId>org.apache.logging.log4j</groupId>
+>   <artifactId>log4j-core</artifactId>
+>   <version>2.11.1</version>
+></dependency>
+>```
 
 ***
 ## Links/ Literatur
@@ -134,6 +154,7 @@
 - [tutorials-point Java-doc](https://www.tutorialspoint.com/java/java_documentation.htm)
 - [How to write doc comments](https://www.oracle.com/technetwork/java/javase/documentation/index-137868.html)
 - [Syntax highlighting Markdown](https://support.codebasehq.com/articles/tips-tricks/syntax-highlighting-in-markdown)
+- [Konfigurations Management Repository](https://github.com/michaelulm/software-configuration-management)
 ### Documents
 
 ***
@@ -155,12 +176,12 @@ configuration-management/tree/master/test-automation/Queue
     - [x] Sie werden die "selben" Testfälle mehrfach erstellen müssen um "mehrere Variationen" für einen möglichst vollständigen Test zu erreichen. Achten Sie dabei mit unterschiedlichen Daten zu testen.
     - [x] JavaDoc Kommentare erstellen.
     - [x] Integrieren Sie ein Bild (der generierten Dokumentation) in Ihren Report.
-- [ ] Passen Sie Ihr pom.xml auf das Projekt an, damit Sie das Projekt erstellen aber auch Dokumentation generieren können.
+- [x] Passen Sie Ihr pom.xml auf das Projekt an, damit Sie das Projekt erstellen aber auch Dokumentation generieren können.
     - [x] EntwicklerInnen Informationen hinzufügen.
-    - [ ] Integration Logging Bibliothek log4j mittels Maven Dependencies.
+    - [x] Integration Logging Bibliothek log4j mittels Maven Dependencies.
 - [ ] Log4j(Version 2) integrieren und in jeder Methode ins Log schreiben
-    - [ ] Siehe aktualisiertes Stack Beispiel
-    - [ ] Erstellen Sie einen Statischen Logger der auf die Konsole schreibt.
+    - [x] Siehe aktualisiertes Stack Beispiel
+    - [x] Erstellen Sie einen Statischen Logger der auf die Konsole schreibt.
     - [ ] Konfigurieren Sie Logger über ein properties File.
     - [ ] Geben Sie eine Info Lognachricht bei Aufruf einer jeden Methode aus.
     - [ ] Geben Sie eine Error Lognachricht aus bevor Sie einen Fehler werfen.
