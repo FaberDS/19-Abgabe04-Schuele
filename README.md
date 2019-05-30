@@ -99,14 +99,20 @@ Kommentieren der Klasse, des Interfaces und deren Methoden.
 #### 4. JUnit Test
 Schreiben der Tests für die StringQueue Klasse.
 > **4.1 Voraussetzungen**
->Um JUnit-Tests schreiben zu können muss im pom.xml folgende Dependency eingefügt >werden:
+>Um JUnit-Tests schreiben zu können muss im pom.xml folgende Dependency eingefügt werden:
 >```xml
 ><groupId>junit</groupId>
 ><artifactId>junit</artifactId>
 ><version>4.12</version>
 ><scope>test</scope>
 >```
->Gesamt wurden 25 Tests auf die 5 Methoden der StringQueue Klasse angewendet. Dabei wurden die kritschen Punkte: leere Queue, Exceptions, volle Queue. Detailierter überprüft. Es wurde ein 100% line coverage erreicht, dies muss nicht zwingend immer erreicht werden.
+> Zum integrieren der Testwerte in die Maven Site wird noch das _Surefire-Plugin_ benötigt:
+>```xml
+> <groupId>org.apache.maven.plugins</groupId>
+> <artifactId>maven-surefire-report-plugin</artifactId>
+> <version>3.0.0-M3</version>
+>```
+> Gesamt wurden 25 Tests auf die 5 Methoden der StringQueue Klasse angewendet. Dabei wurden die kritschen Punkte: leere Queue, Exceptions, volle Queue. Detailierter überprüft. Es wurde ein 100% line coverage erreicht, dies muss nicht zwingend immer erreicht werden.
 
 > **4.2 Verwendete Methoden**
 >   ```java
@@ -200,6 +206,46 @@ Der Logger kann mittels .xml oder .properties File konfiguriert werden ich verwe
 >        logger.file.appenderRefs = file
 >        logger.file.appenderRef.file.ref = LOGFILE
 >```
+#### 6. Maven Site
+Mithilfe von Maven Site lassen sich die erzeugten Daten angemessen repräsentieren ohne größeren Aufwand. Den größten Teil macht der generierte Content von den JUnit-Tests und der Java-Doc aus. Zusätzlich können manuell Seiten hinzugefügt werden. s
+>   **6.1 Vorraussetzungen**
+> Um manuell Maven Sites zu erstellen muss innerhalb des src Ordners der site Ordner angelegt werden. Dieser beinhaltet als wichtigstes Element, das site.xml File mit welchem die Struktur und Inhalt der Seite festgelegt wird. Die Seiten können in apt, markdown, xdoc, fml geschrieben werden und müssen im jeweiligen Ordner mit der jeweiligen Sprachendung gespeichert werden. Im site.xml werden diese Seiten mit der Endung .html eingebettet. Während des Maven Site Zykluses werden diese Dateien in den Target Ordner übertragen und die jeweilige Seite in HTML umgewandelt.
+> _Ordnerstruktur :_
+>  ![Directory Structure for creating manuell Sites](./media/dir_structure_site.png)
+>
+> Im site.xml ist eines der wichtigsten Punkte der folgende XML-Tag, da dieser die Links/ Referencen zu den automatisiert erzeugten Dokumenten darstellt.
+> ```xml
+>   <menu ref="reports"/>
+>``` 
+> _Dependencies:_
+>```xml
+> <groupId>org.apache.maven.plugins</groupId>
+> <artifactId>maven-site-plugin</artifactId>
+> <version>3.7.1</version>
+>```
+>```xml
+> <groupId>org.apache.maven.plugins</groupId>
+> <artifactId>maven-project-info-reports-plugin</artifactId>
+> <version>3.0.0</version>
+>````
+
+> **6.2 Optionale Inhalte/ Gestaltung:**
+> Um zusätzlich Bilder oder CSS-Files einzubetten muss innerhalb des site Ordners der resources Ordner mit den Sub-Ordnern css und images angelegt werden. Während des Site Zykluses entnimmt Maven automatisiert den Inhalt dieser Ordner.
+>   Bilder können mittels `./images/<imagename>` referrenziert werden.
+>
+> _Syntax zum einbinden von Bildern:_ 
+>```md
+>![<alternativ Text>](./images/<Bild-Name> "<title>")(<url für Lik>)
+>```
+>  Title und URL ist optional und die [] des alternativ Text können auch leer bleiben.  
+> _Ordnerstruktur für zusätzliche Ressourcen (optional):_
+>  ![Directory Structure for creating manuell Sites](./media/dir_structure_optional.png)
+
+
+
+>   **6.3 Ergebnis**
+> ![Screenshot of the manual created maven site](media/maven_site.png)
+
 ***
 ## Links/ Literatur
 ### Plugins
@@ -246,12 +292,12 @@ configuration-management/tree/master/test-automation/Queue
     - [x] Geben Sie eine Info Lognachricht bei Aufruf einer jeden Methode aus.
     - [x] Geben Sie eine Error Lognachricht aus bevor Sie einen Fehler werfen.
     Ergebnisse (Konsolenausgabe) als Bild in Dokumentation einfließen lassen.
-- [ ] Maven Site Dokumentation erstellen
+- [x] Maven Site Dokumentation erstellen
     - [x] Inklusive Javadoc Code und Javadoc Test Klassen
-    - [ ] Inklusive Menü mit Verweis auf manuell erstelle Seite
-        - [ ] Seite erläutert Funktionsweise Queue
-    - [ ] Geben Sie ein Bild der Maven Site Dokumentation in den Lab Report
-        - [ ] Der Inhalt der manuell erstellten Seite sollte ersichtlich sein
+    - [x] Inklusive Menü mit Verweis auf manuell erstelle Seite
+        - [x] Seite erläutert Funktionsweise Queue
+    - [x] Geben Sie ein Bild der Maven Site Dokumentation in den Lab Report
+        - [x] Der Inhalt der manuell erstellten Seite sollte ersichtlich sein
 - [ ] Erstellung detaillierter und nachvollziehbarer Markdown Lab Report
     - [x] Übertragung Information auf Labreport Template
     - [ ] Alle Schritte dieser Übung nachvollziehbar erläutern.

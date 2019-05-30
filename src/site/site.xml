@@ -13,9 +13,10 @@
             <item name="Apache" href="http://www.apache.org/" />
             <item name="Maven 1.x" href="http://maven.apache.org/maven-1.x/"/>
             <item name="Maven 2" href="http://maven.apache.org/"/>
+            <item name="FaberDS-Repository" href="https://github.com/FaberDS/"/>
         </links>
 
-        <menu name="Maven 2.0">
+        <menu name="19-Abgabe04-Schuele">
             <item name="Queue" href="queue.html" />
         </menu>
 
