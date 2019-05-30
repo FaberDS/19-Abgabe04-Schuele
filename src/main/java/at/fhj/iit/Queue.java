@@ -5,7 +5,7 @@ public interface Queue {
 	/**
 	 *  Adds the element obj to the queue. 
 	 *  If the addition is successful, the method returns true else false.
-	 * @param obj
+	 * @param obj String
 	 * @return
 	 */
 	public abstract boolean offer(String obj);

@@ -52,9 +52,11 @@ Name: | Denis Schüle
 ***
 ## Links/ Literatur
 ### Plugins
-- Markdown All in One 2.3.1
+- Markdown All in One 2.3.1 (für VS Code)
 ### Links
 - [github Flavored](https://github.github.com/gfm/)
+- [junit Artikel](http://www.tutego.de/blog/javainsel/2010/04/junit-4-tutorial-java-tests-mit-junit/)
+- [maven tags](https://maven.apache.org/plugins/maven-javadoc-plugin/examples/tag-configuration.html)
 ***
 ## To-Do-List:
  - [x] Übertragen Angabe Tasklist in Markdown Readme

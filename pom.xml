@@ -73,6 +73,16 @@
                     </reportSet>
                 </reportSets>
                 <version>3.1.0</version>
+                <configuration>
+                    <tags>
+                        <tag>
+                            <!--@result is replaced true "Test assertion:"-->
+                            <name>result</name>
+                            <placement>a</placement>
+                            <head>Test assertion:</head>
+                        </tag>
+                    </tags>
+                </configuration>
 
             </plugin>
 

@@ -65,7 +65,8 @@ public class StringQueue implements Queue {
 	}
 
 	/**
-	 * Poll returns the first element of the queue and remove the element from the queue, if the queue is empty the method return null.
+	 * Poll returns the first element of the queue and remove the element from the queue,
+	 * if the queue is empty the method return null.
 	 * The first element is selected with the {@link StringQueue#peek()} method.
 	 * @return String The first element in the queue, if the queue is empty it return null.
 	 *  @since 1.0
