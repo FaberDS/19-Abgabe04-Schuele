@@ -205,9 +205,44 @@ public class StringQueueTest {
         }
         fail("Employee Id Null exception did not throw!");
     }
+
+    /**
+     * Tests to get the peek() of an empty StringQueue.
+     * @result Is null, because there is no element in the queue.
+     */
     @Test
     public void peek() {
-
+        assertNull(sq1.peek());
+    }
+    /**
+     * Tests to get the peek() from StringQueue after offering one element.
+     * @result It is equal, because the same element is passed.
+     */
+    @Test
+    public void peek2() {
+        String statement = "1";
+        sq1.offer(statement);
+        assertEquals(statement, sq1.peek());
+    }
+    /**
+     * Tests to get the peek() from StringQueue after offering two elements. Prove the FIFO principal.
+     * @result It isn't equal, because the the queue returns the first element and not the last offered.
+     */
+    @Test
+    public void peek3() {
+        String statement = "2";
+        sq1.offer("1");
+        sq1.offer(statement);
+        assertNotSame(statement, sq1.peek());
+    }
+    /**
+     * Tests to get the peek() of StringQueue after offering an element.
+     * @result Is not null, because the queue isn't empty.
+     */
+    @Test
+    public void peek4() {
+        sq1.offer("1");
+        assertNotNull(sq1.peek());
     }
 
     @Test
