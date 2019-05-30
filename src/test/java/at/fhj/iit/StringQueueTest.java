@@ -18,7 +18,6 @@ public class StringQueueTest {
 
     /**
      * Initilize two instances of {@link StringQueue}.
-     * @throws Exception
      */
     @Before
     public void setUp() throws Exception {
@@ -44,6 +43,7 @@ public class StringQueueTest {
     public void offer() {
         assertTrue( sq1.offer("1"));
     }
+
     /**
      * Tests with the default constructor (maxSize=5).
      * @result Is false beacause passing six Strings.
@@ -57,6 +57,7 @@ public class StringQueueTest {
         sq1.offer("5");
         assertFalse( sq1.offer("6"));
     }
+
     /**
      * Tests with the second constructor maxSize is passed as argument (2).
      * @result Is true because passing two Strings.
@@ -66,6 +67,7 @@ public class StringQueueTest {
         sq2.offer("1");
         assertTrue( sq2.offer("2"));
     }
+
     /**
      * Tests with the second constructor maxSize is passed as argument (2).
      * @result Is false because passing three Strings.
@@ -85,6 +87,7 @@ public class StringQueueTest {
     public void poll() {
         assertNull(sq1.poll());
     }
+
     /**
      * Tests polling from the instance of {@link StringQueue} with an element.
      * @result Return true, because the queue is not empty.
@@ -94,6 +97,7 @@ public class StringQueueTest {
         sq1.offer("1");
         assertNotNull(sq1.poll());
     }
+
     /**
      * Tests polling from the instance of {@link StringQueue}, after {@link StringQueue#offer(String)} and {@link StringQueue#remove()}ing one element.
      * @result Is null, because the queue is empty.
@@ -119,6 +123,7 @@ public class StringQueueTest {
         }
         assertNull(sq2.poll());
     }
+
     /**
      * Tests polling from the instance of {@link StringQueue}, after {@link StringQueue#offer(String)} one element.
      * @result Is equals, because we offer() an element and get the same back.
@@ -129,6 +134,7 @@ public class StringQueueTest {
         sq1.offer(parameter);
         assertEquals(parameter, sq1.poll());
     }
+
     /**
      * Tests polling if the instance of {@link StringQueue} is working like the FIFO principal, by {@link StringQueue#offer(String)}ing three elements.
      * @result Is equals, because the first offered parameter is tested and the queue works like the FIFO principal.
@@ -141,6 +147,7 @@ public class StringQueueTest {
         sq1.offer("3");
         assertEquals(parameter1, sq1.poll());
     }
+
     /**
      * Tests polling from the instance of {@link StringQueue}, after {@link StringQueue#offer(String)}ing one element.
      * @result Is equals, because we offer() an element and get the same back.
@@ -151,6 +158,7 @@ public class StringQueueTest {
         sq1.offer(parameter);
         assertEquals(parameter, sq1.poll());
     }
+
     /**
      * Tests polling from the instance of {@link StringQueue}, after {@link StringQueue#offer(String)}ing two elements.
      * @result Is not same, because after offering two elements we we compare the first passed parmeter.
@@ -171,6 +179,7 @@ public class StringQueueTest {
     public void remove3(){
         sq1.remove();
     }
+
     /**
      * Tests to remove more elements from the instance of {@link StringQueue} than {@link StringQueue#offer(String)}ed.
      * @result {@link NoSuchElementException} is thrown.
@@ -191,7 +200,7 @@ public class StringQueueTest {
      * @result Is equals.
      */
     @Test (expected = NoSuchElementException.class)
-    public void remove5()
+    public void remove5() throws Exception
     {
         try
         {
@@ -214,6 +223,7 @@ public class StringQueueTest {
     public void peek() {
         assertNull(sq1.peek());
     }
+
     /**
      * Tests to get the {@link StringQueue#peek()} from the instance of {@link StringQueue} after {@link StringQueue#offer(String)}ing one element.
      * @result It is equal, because the same element is passed.
@@ -224,6 +234,7 @@ public class StringQueueTest {
         sq1.offer(statement);
         assertEquals(statement, sq1.peek());
     }
+
     /**
      * Tests to get the {@link StringQueue#peek()} from the instance of {@link StringQueue} after {@link StringQueue#offer(String)}ing two elements. Prove the FIFO principal.
      * @result It isn't equal, because the the queue returns the first element and not the last offered.
@@ -235,6 +246,7 @@ public class StringQueueTest {
         sq1.offer(statement);
         assertNotSame(statement, sq1.peek());
     }
+
     /**
      * Tests to get the peek() from the instance of {@link StringQueue} after {@link StringQueue#offer(String)}ing an element.
      * @result Is not null, because the queue isn't empty.
@@ -245,9 +257,55 @@ public class StringQueueTest {
         assertNotNull(sq1.peek());
     }
 
-    @Test
+    /**
+     * Test to get the first elemenent of the instance of {@link StringQueue} without {@link StringQueue#offer(String)}ing a element.
+     * @result {@link NoSuchElementException} is thrown.
+     */
+    @Test (expected = NoSuchElementException.class)
     public void element() {
+        sq1.element();
     }
 
+    /**
+     * Test to get the first elemenent of the instance of{@link StringQueue} after {@link StringQueue#offer(String)}ing one element.
+     * @result {@link NoSuchElementException} is thrown.
+     */
+    @Test
+    public void element2() {
+        String parameter = "1";
+        sq1.offer(parameter);
+        assertEquals(parameter, sq1.element());
+    }
+
+    /**
+     * Tests to get the {@link StringQueue#element()} from the instance of {@link StringQueue} after {@link StringQueue#offer(String)}ing two elements. Prove the FIFO principal.
+     * @result It isn't equal, because the the queue returns the first element and not the last offered.
+     */
+    @Test public void element3(){
+        String parameter = "2";
+        sq1.offer("1");
+        sq1.offer(parameter);
+        assertNotSame(parameter, sq1.element());
+    }
+
+    /**
+     * Tests the Exception message from {@link NoSuchElementException} thrown by {@link StringQueue#element()}
+     * @result Is equals.
+     */
+    @Test (expected = NoSuchElementException.class)
+    public void element4() throws Exception
+    {
+        try
+        {
+            sq1.element();
+        }
+        catch(RuntimeException re)
+        {
+            String message = "there's no element any more";
+            assertEquals(message, re.getMessage());
+            throw re;
+        }
+        fail("Employee Id Null exception did not throw!");
+    }
 
 }

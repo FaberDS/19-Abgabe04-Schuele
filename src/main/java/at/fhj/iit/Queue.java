@@ -1,5 +1,13 @@
 package at.fhj.iit;
 
+/**
+ *The Queue Interface should be implemented for Classes where the FIFO-principal is required.
+ * The five methods which needs to be implemented from the class are the basic operations for queues.
+ * @author	Denis Schüle
+ * @version 1.0
+ * @since 	29.05.2019
+ *
+ */
 public interface Queue {
 	
 	/**

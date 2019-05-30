@@ -117,7 +117,7 @@ public class StringQueue implements Queue {
 	 *	Element returns the first element of the queue without deleting the element, if the queue is empty the method throws {@link NoSuchElementException};
 	 * @return String The first element in the queue, if the queue is empty the method throws {@link NoSuchElementException}.
 	 * @exception NoSuchElementException If the element returned from {@link StringQueue#peek()} equals null.
-	 *  @since 1.0
+	 * @since 1.0
 	 */
 	@Override
 	public String element() {
