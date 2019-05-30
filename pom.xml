@@ -12,7 +12,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <url>https://github.com/FaberDS?tab=repositories</url>
+    <url>https://github.com/FaberDS/19-Abgabe04-Schuele</url>
 
     <developers>
         <developer>
@@ -130,8 +130,8 @@
     </build>
 
     <scm>
-        <connection>scm:git:https://github.com/FaberDS?tab=repositories</connection>
-        <developerConnection>scm:git:https://github.com/FaberDS?tab=repositories</developerConnection>
+        <connection>scm:git:https://github.com/FaberDS/19-Abgabe04-Schuele</connection>
+        <developerConnection>scm:git:https://github.com/FaberDS/19-Abgabe04-Schuele</developerConnection>
         <tag>HEAD</tag>
         <url>https://github.com/FaberDS?tab=repositories</url>
     </scm>

@@ -25,11 +25,11 @@
 >   Ohne Konstruktor ohne Parameter wäre die private maxSize Variable sinnbefreit.
 >   Der angepasste Code ermöglicht es eien maxSize zu übergeben. Wird jedoch kein Parameter übergeben wird die maxSize dieser Queue auf 5 gesetzt.
 >
->**Problem**:
+>_Problem_:
 >
 >![error_01 Konstruktor](./media/error_01.png "Constructor error")
 >
-> **Lösung**:
+> _Lösung_:
 >
 >`public StringQueue(){ this.maxSize = maxSize; }`
 >
@@ -38,11 +38,11 @@
 > ##### 2.2 Equals 0
 > Wenn die size() 0 retourniert soll ein Element gelöscht werden. Diese if Abfrage führt zu einer _IndexOutOfBoundsException_. 
 >
->**Problem**:
+>_Problem_:
 >
 >![error_01 Konstruktor](./media/error_02.png "Equals 0")
 >
-> **Lösung**:
+> _Lösung_:
 > `public String poll() {
 >		String element = peek();
 >		if(elements.size() > 0){
@@ -54,17 +54,18 @@
 > ##### 2.3 Assign to empty string
 > Wenn dem element "" zugewiesen wird. Ist der return-Wert der Methode immer ""
 >
->**Problem**:
+>_Problem_:
 >
 >![error_01 Konstruktor](./media/error_03.png "empty string assignment")
 >
-> **Lösung**:
+> _Lösung_:
 > `//element = "";`
 
 #### 3. Java-Doc Kommentare
-    Kommentieren der Klasse, des Interfaces und deren Methoden. 
+Kommentieren der Klasse, des Interfaces und deren Methoden. 
     
->**Genutzt Assignments**:
+>**3.1 Genutzt Assignments**:
+>
 >| Assignment    |   Bedeutung |
 >| ---           |:---      |
 >| @author       |   Autor     |
@@ -77,7 +78,7 @@
 >| {@link "classname[#method name]"}       |   >Um einen Link zur Klasse/ Methode(optional) >zu setzen     |
 >| @throws       |   Der Test wirft diese Exception     |
 
-> **3.1 Eigene Tags**
+> **3.2 Eigene Tags**
 >Um eigene Tags für die Java-Docs zu verwenden habe ich folgende Konfiguration innerhalb des Maven-Javadoc Plugins hinzugefügt:
 >```xml
 ><configuration>
@@ -92,11 +93,12 @@
 ></configuration>
 >```
 
-> **3.2 Java-Doc Screenshot**
+> **3.3 Java-Doc Screenshot**
 >![Java-Docs](./media/java_doc_productive_code.png)
 
 #### 4. JUnit Test
 Schreiben der Tests für die StringQueue Klasse.
+> **4.1 Voraussetzungen**
 >Um JUnit-Tests schreiben zu können muss im pom.xml folgende Dependency eingefügt >werden:
 >```xml
 ><groupId>junit</groupId>
@@ -106,7 +108,7 @@ Schreiben der Tests für die StringQueue Klasse.
 >```
 >Gesamt wurden 25 Tests auf die 5 Methoden der StringQueue Klasse angewendet. Dabei wurden die kritschen Punkte: leere Queue, Exceptions, volle Queue. Detailierter überprüft. Es wurde ein 100% line coverage erreicht, dies muss nicht zwingend immer erreicht werden.
 
-> **4.1 Verwendete Methoden**
+> **4.2 Verwendete Methoden**
 >   ```java
 >       assert();
 >       assertTrue();
@@ -121,7 +123,7 @@ Schreiben der Tests für die StringQueue Klasse.
 >@Test (expected = Exception-Name.class)
 >```
 
->**4.2 Surefire Report Screenshot**
+>**4.3 Surefire Report Screenshot**
 >![Java-Docs](./media/surefire_report.png)
 
 #### 5. Log4j2
@@ -212,6 +214,7 @@ Der Logger kann mittels .xml oder .properties File konfiguriert werden ich verwe
 - [Konfigurations Management Repository](https://github.com/michaelulm/software-configuration-management)
 - [Log2f4 Tutorial](https://www.youtube.com/watch?v=YGG-_irDc5k)
 - [Log2f4 Basic](https://www.tutorialspoint.com/log4j/log4j_logging_files.htm)
+- [Maven Site Infos](https://blog.akquinet.de/2012/04/12/maven-sites-reloaded/)
 ### Documents
 
 ***
