@@ -23,7 +23,7 @@ import java.util.NoSuchElementException;
  * @see    	java.util.NoSuchElementException
  */
 public class StringQueue implements Queue {
-	
+
 	private List<String> elements = new ArrayList<String>();
 
 	/**
@@ -60,7 +60,7 @@ public class StringQueue implements Queue {
 			elements.add(obj);
 		else
 			return false;
-		
+
 		return true;
 	}
 
@@ -88,11 +88,11 @@ public class StringQueue implements Queue {
 	 */
 	@Override
 	public String remove() {
-		String element = poll();		
+		String element = poll();
 		//element = "";
 		if(element == null)
 			throw new NoSuchElementException("there's no element any more");
-		
+
 		return element;
 	}
 
@@ -108,7 +108,7 @@ public class StringQueue implements Queue {
 			element = elements.get(0);
 		else
 			element = null;
-		
+
 		return element;
 	}
 
@@ -122,7 +122,7 @@ public class StringQueue implements Queue {
 		String element = peek();
 		if(element == null)
 			throw new NoSuchElementException("there's no element any more");
-		
+
 		return element;
 	}
 
