@@ -1,5 +1,8 @@
 package at.fhj.iit;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -23,9 +26,9 @@ import java.util.NoSuchElementException;
  * @see    	java.util.NoSuchElementException
  */
 public class StringQueue implements Queue {
-
-	private List<String> elements = new ArrayList<String>();
-
+    private static final Logger LOGGER = LogManager.getLogger(StringQueue.class);
+    private List<String> elements = new ArrayList<String>();
+    private static String mc = "Method-call: ";
 	/**
 	 *
 	 */
@@ -56,6 +59,7 @@ public class StringQueue implements Queue {
 	 */
 	@Override
 	public boolean offer(String obj) {
+	    LOGGER.info(mc+"offer.");
 		if(elements.size()!= maxSize)
 			elements.add(obj);
 		else
@@ -73,6 +77,7 @@ public class StringQueue implements Queue {
 	 */
 	@Override
 	public String poll() {
+	    LOGGER.info(mc+"poll.");
 		String element = peek();
 		if(elements.size() > 0){
 			elements.remove(0);
@@ -89,11 +94,14 @@ public class StringQueue implements Queue {
 	 */
 	@Override
 	public String remove() {
-		String element = poll();
-		//element = "";
-		if(element == null)
-			throw new NoSuchElementException("there's no element any more");
+        LOGGER.info(mc+"remove.");
 
+        String element = poll();
+		//element = "";
+		if(element == null) {
+            LOGGER.error("NoSuchElementException thrown.");
+            throw new NoSuchElementException("there's no element any more");
+        }
 		return element;
 	}
 
@@ -104,7 +112,9 @@ public class StringQueue implements Queue {
 	 */
 	@Override
 	public String peek() {
-		String element;
+        LOGGER.info(mc+"peek.");
+
+        String element;
 		if(elements.size() > 0)
 			element = elements.get(0);
 		else
@@ -121,9 +131,14 @@ public class StringQueue implements Queue {
 	 */
 	@Override
 	public String element() {
-		String element = peek();
-		if(element == null)
+        LOGGER.info(mc+"element.");
+
+        String element = peek();
+		if(element == null){
+            LOGGER.error("NoSuchElementException thrown.");
 			throw new NoSuchElementException("there's no element any more");
+
+        }
 
 		return element;
 	}

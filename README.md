@@ -143,6 +143,26 @@ Der Logger kann mittels .xml oder .properties File konfiguriert werden ich verwe
 ></dependency>
 >```
 
+>   **5.2 How to**
+>   Sobald die Voraussetzungen erfüllt sind mittels
+> ```java
+>    private static final Logger LOGGER = LogManager.getLogger(Classname.class);
+>```
+>   Logger in der gewünschten Klasse instanzirenen und dabei den Klassennamen übergeben.
+>   Der Log2f4 stellte einige Methoden zur Verfügung:
+>   ```java
+>       info()
+>       error()
+>       debug()
+>       warn()
+>       fatal()
+>       trace()   
+>```
+
+
+>   **5.3 Logger Resultat**
+> ![Consol Screenshot from the logged methods](media/log4j2_console.png)
+
 ***
 ## Links/ Literatur
 ### Plugins
@@ -155,6 +175,7 @@ Der Logger kann mittels .xml oder .properties File konfiguriert werden ich verwe
 - [How to write doc comments](https://www.oracle.com/technetwork/java/javase/documentation/index-137868.html)
 - [Syntax highlighting Markdown](https://support.codebasehq.com/articles/tips-tricks/syntax-highlighting-in-markdown)
 - [Konfigurations Management Repository](https://github.com/michaelulm/software-configuration-management)
+- [Log2f4 Tutorial](https://www.youtube.com/watch?v=YGG-_irDc5k)
 ### Documents
 
 ***
