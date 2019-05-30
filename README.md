@@ -8,6 +8,8 @@ Name: | Denis Schüle
 ## Vorgehen
 #### 1.  To-Do-List übertragen mit MD vertieft
 #### 2.  Bug Suche
+   Bug-Suche begann mit dem sichten der StringQueue.java. Durch die augenfälligkeit der Bugs benötigte ich keine Klasse um die StringQueue.java zu testen.
+   
 > ##### 2.1 Construcor typing error & senseless variable
 >   Ohne Konstruktor ohne Parameter wäre die private maxSize Variable sinnbefreit.
 >   Der angepasste Code ermöglicht es eien maxSize zu übergeben. Wird jedoch kein Parameter übergeben wird die maxSize dieser Queue auf 5 gesetzt.
