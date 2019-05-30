@@ -152,7 +152,8 @@ Der Logger kann mittels .xml oder .properties File konfiguriert werden ich verwe
 >```
 
 >   **5.2 How to**
->   Sobald die Voraussetzungen erfüllt sind mittels
+>
+> Sobald die Voraussetzungen erfüllt sind mittels
 > ```java
 >    private static final Logger LOGGER = LogManager.getLogger(Classname.class);
 >```
@@ -191,6 +192,7 @@ Der Logger kann mittels .xml oder .properties File konfiguriert werden ich verwe
 > ![Consol Screenshot from the logged methods](media/log4j2_console.png)
 
 >   **5.4 Ausgabe**
+>
 >   Um die Ausgabe zu leiten muss ein appender configuriert werden.
 >   _Ausgabe in ein File:_
 >   ```properties
@@ -206,8 +208,9 @@ Der Logger kann mittels .xml oder .properties File konfiguriert werden ich verwe
 >        logger.file.appenderRefs = file
 >        logger.file.appenderRef.file.ref = LOGFILE
 >```
+
 #### 6. Maven Site
-Mithilfe von Maven Site lassen sich die erzeugten Daten angemessen repräsentieren ohne größeren Aufwand. Den größten Teil macht der generierte Content von den JUnit-Tests und der Java-Doc aus. Zusätzlich können manuell Seiten hinzugefügt werden. s
+Mithilfe von Maven Site lassen sich die erzeugten Daten angemessen repräsentieren ohne größeren Aufwand. Den größten Teil macht der generierte Content von den JUnit-Tests und der Java-Doc aus. Zusätzlich können manuell Seiten hinzugefügt werden. 
 >   **6.1 Vorraussetzungen**
 > Um manuell Maven Sites zu erstellen muss innerhalb des src Ordners der site Ordner angelegt werden. Dieser beinhaltet als wichtigstes Element, das site.xml File mit welchem die Struktur und Inhalt der Seite festgelegt wird. Die Seiten können in apt, markdown, xdoc, fml geschrieben werden und müssen im jeweiligen Ordner mit der jeweiligen Sprachendung gespeichert werden. Im site.xml werden diese Seiten mit der Endung .html eingebettet. Während des Maven Site Zykluses werden diese Dateien in den Target Ordner übertragen und die jeweilige Seite in HTML umgewandelt.
 > _Ordnerstruktur :_
@@ -246,12 +249,35 @@ Mithilfe von Maven Site lassen sich die erzeugten Daten angemessen repräsentier
 >   **6.3 Ergebnis**
 > ![Screenshot of the manual created maven site](media/maven_site.png)
 
+####7. Markdown Übung
+Github Flavor ist einer der meist verwendeten Markdown Dialekte. Er legt die Syntax und Semantic fest und wird auf den github domains verwendet.
+> **7.1 Java Code**
+> ```java
+>   if(theWeatherIsNice)
+>   {
+>   System.out.println("Hello world on this awesome day!");
+>   }
+>   else 
+>   {
+>   System.out.println("The weather sucks"); 
+>   }
+>```
+
+> **7.2 Phyton Code**
+>```python
+>   #!/usr/bin/python
+>   if weatherIsNice:
+>       print "Hello world on this awesome day!"
+>   else:
+>       print "The weather sucks"
+>```
 ***
 ## Links/ Literatur
 ### Plugins
 - Markdown All in One 2.3.1 (für VS Code)
 ### Links
 - [github Flavored](https://github.github.com/gfm/)
+- [Markdown Guide Github](https://guides.github.com/features/mastering-markdown/)
 - [junit Artikel](http://www.tutego.de/blog/javainsel/2010/04/junit-4-tutorial-java-tests-mit-junit/)
 - [maven tags](https://maven.apache.org/plugins/maven-javadoc-plugin/examples/tag-configuration.html)
 - [tutorials-point Java-doc](https://www.tutorialspoint.com/java/java_documentation.htm)
@@ -261,6 +287,7 @@ Mithilfe von Maven Site lassen sich die erzeugten Daten angemessen repräsentier
 - [Log2f4 Tutorial](https://www.youtube.com/watch?v=YGG-_irDc5k)
 - [Log2f4 Basic](https://www.tutorialspoint.com/log4j/log4j_logging_files.htm)
 - [Maven Site Infos](https://blog.akquinet.de/2012/04/12/maven-sites-reloaded/)
+- [Phyton Basic](https://www.tutorialspoint.com/python/python_if_else.htm)
 ### Documents
 
 ***
@@ -268,8 +295,8 @@ Mithilfe von Maven Site lassen sich die erzeugten Daten angemessen repräsentier
  - [x] Übertragen Angabe Tasklist in Markdown Readme
  - [x] Einspielen Queue Vorlage aus Repository https://github.com/michaelulm/software-
 configuration-management/tree/master/test-automation/Queue
- - [ ] Taskergebnisse Schritt für Schritt auf Git stellen
-   - [ ] Führung Taskliste
+ - [x] Taskergebnisse Schritt für Schritt auf Git stellen
+   - [x] Führung Taskliste
    - [x] Veröffentlichung in Git mit aktuell durchgeführten Tätigkeiten, z.B. Testfälle geschrieben so wird auch in der Taskliste diese Aufgabe als erledigt markiert und Testfälle inkl. geänderter Taskliste ins Repository übertragen.
 - [x] Korrigieren Sie den Code bzw. Debuggen Sie ihn um die Fehler zu finden
     - [x] Es befinden sich gesamt 3 Fehler im Source Code
@@ -300,7 +327,7 @@ configuration-management/tree/master/test-automation/Queue
         - [x] Der Inhalt der manuell erstellten Seite sollte ersichtlich sein
 - [ ] Erstellung detaillierter und nachvollziehbarer Markdown Lab Report
     - [x] Übertragung Information auf Labreport Template
-    - [ ] Alle Schritte dieser Übung nachvollziehbar erläutern.
-    - [ ] Übung Github Flavor: Erstellen Sie einen Codeblock im Dokument, welcher 3 Zeilen Python und 3 Zeilen Java Source Code korrekt darstellt.
+    - [x] Alle Schritte dieser Übung nachvollziehbar erläutern.
+    - [x] Übung Github Flavor: Erstellen Sie einen Codeblock im Dokument, welcher 3 Zeilen Python und 3 Zeilen Java Source Code korrekt darstellt.
     - [ ] Korrekturlesen Dokumentation
     - [ ] PDF erstellen (zB. Dillinger)
