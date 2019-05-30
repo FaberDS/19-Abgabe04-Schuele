@@ -117,6 +117,31 @@ public class StringQueueTest {
         }
         assertNull(sq2.poll());
     }
+    /**
+     * Tests polling from StringQueue, after adding one element.
+     * @result Return true, because we offer() an element and get the same back.
+     */
+    @Test
+    public void poll5(){
+        String parameter = "1";
+        sq1.offer(parameter);
+        assertEquals(parameter, sq1.poll());
+    }
+    /**
+     * Tests polling if the StringQueue is working like the FIFO principal, by adding three elements.
+     * @result Return true, because the first offered parameter is tested and the queue works like the FIFO principal.
+     */
+    @Test
+    public void poll6(){
+        String parameter1 = "1";
+        sq1.offer(parameter1);
+        sq1.offer("2");
+        sq1.offer("3");
+        assertEquals(parameter1, sq1.poll());
+    }
+    /**
+     *
+     */
     @Test
     public void remove() {
     }
@@ -130,9 +155,5 @@ public class StringQueueTest {
     public void element() {
     }
 
-
-    /**
-     * TODO Write your own tests
-     */
 
 }
