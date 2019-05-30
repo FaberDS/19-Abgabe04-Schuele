@@ -124,8 +124,8 @@ Schreiben der Tests für die StringQueue Klasse.
 >**4.2 Surefire Report Screenshot**
 >![Java-Docs](./media/surefire_report.png)
 
-####5. Log4j2
-Der Log4j2 ermöglicht das loggen während eine Java Application läuft.
+#### 5. Log4j2
+Der Log4j2 ermöglicht das loggen während eine Java Application läuft. Sozusagen das überwachen der Aktivitäten.
 Der Logger kann mittels .xml oder .properties File konfiguriert werden ich verwende letzteres.
 >   **5.1 Vorraussetzungen**
 >   Im main Ordner wird der resource Ordner mit dem Log4j2.properties File benötigt. 
@@ -158,11 +158,46 @@ Der Logger kann mittels .xml oder .properties File konfiguriert werden ich verwe
 >       fatal()
 >       trace()   
 >```
+>   Diesen kann an den gewünschten Stellen im Code die relevante Nachricht übergeben werden.
+>   Im Beispiel ist der Logger so konfiguriert das die Ausgabe nur auf der Console erfolgt.
+>
+>   _Formartierung_
+>   `%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L -\t %m\t%n>`
+>       1. Datum
+>       2. Level (welche Methode)
+>       3. Klasse
+>       4. Line
+>       5. Message
 
 
->   **5.3 Logger Resultat**
+>   **5.3 Logger in Action**
+>   _Methodenaufruf:_
+>   ```java
+>       StringQueue sq = new StringQueue();
+>       sq.offer("Hallo Log4j2 schön das es dich gibt!");
+>       System.out.println(sq.element());
+>       System.out.println(sq.remove());
+>       System.out.println(sq.remove());
+>```
+>   _Consolenausgabe_:
 > ![Consol Screenshot from the logged methods](media/log4j2_console.png)
 
+>   **5.4 Ausgabe**
+>   Um die Ausgabe zu leiten muss ein appender configuriert werden.
+>   _Ausgabe in ein File:_
+>   ```properties
+>       appender.file.type = File
+>        appender.file.name = LOGFILE
+>        appender.file.fileName=${filename}/propertieslogs.log
+>        appender.file.layout.type=PatternLayout
+>        appender.file.layout.pattern=[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+>        
+>        loggers=file
+>        logger.file.name=at.fhj.iit
+>        logger.file.level = debug
+>        logger.file.appenderRefs = file
+>        logger.file.appenderRef.file.ref = LOGFILE
+>```
 ***
 ## Links/ Literatur
 ### Plugins
@@ -176,6 +211,7 @@ Der Logger kann mittels .xml oder .properties File konfiguriert werden ich verwe
 - [Syntax highlighting Markdown](https://support.codebasehq.com/articles/tips-tricks/syntax-highlighting-in-markdown)
 - [Konfigurations Management Repository](https://github.com/michaelulm/software-configuration-management)
 - [Log2f4 Tutorial](https://www.youtube.com/watch?v=YGG-_irDc5k)
+- [Log2f4 Basic](https://www.tutorialspoint.com/log4j/log4j_logging_files.htm)
 ### Documents
 
 ***
@@ -200,15 +236,15 @@ configuration-management/tree/master/test-automation/Queue
 - [x] Passen Sie Ihr pom.xml auf das Projekt an, damit Sie das Projekt erstellen aber auch Dokumentation generieren können.
     - [x] EntwicklerInnen Informationen hinzufügen.
     - [x] Integration Logging Bibliothek log4j mittels Maven Dependencies.
-- [ ] Log4j(Version 2) integrieren und in jeder Methode ins Log schreiben
+- [x] Log4j(Version 2) integrieren und in jeder Methode ins Log schreiben
     - [x] Siehe aktualisiertes Stack Beispiel
     - [x] Erstellen Sie einen Statischen Logger der auf die Konsole schreibt.
-    - [ ] Konfigurieren Sie Logger über ein properties File.
-    - [ ] Geben Sie eine Info Lognachricht bei Aufruf einer jeden Methode aus.
-    - [ ] Geben Sie eine Error Lognachricht aus bevor Sie einen Fehler werfen.
+    - [x] Konfigurieren Sie Logger über ein properties File.
+    - [x] Geben Sie eine Info Lognachricht bei Aufruf einer jeden Methode aus.
+    - [x] Geben Sie eine Error Lognachricht aus bevor Sie einen Fehler werfen.
     Ergebnisse (Konsolenausgabe) als Bild in Dokumentation einfließen lassen.
 - [ ] Maven Site Dokumentation erstellen
-    - [ ] Inklusive Javadoc Code und Javadoc Test Klassen
+    - [x] Inklusive Javadoc Code und Javadoc Test Klassen
     - [ ] Inklusive Menü mit Verweis auf manuell erstelle Seite
         - [ ] Seite erläutert Funktionsweise Queue
     - [ ] Geben Sie ein Bild der Maven Site Dokumentation in den Lab Report
