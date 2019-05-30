@@ -5,13 +5,14 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static junit.framework.TestCase.assertEquals;
-import static junit.framework.TestCase.assertFalse;
+import static junit.framework.TestCase.*;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 public class StringQueueTest {
     private StringQueue sq1;
     private StringQueue sq2;
+    private static int maxSizeTestParameter = 2;
 
     /**
      * Initilize two instances of StringQueue
@@ -20,7 +21,7 @@ public class StringQueueTest {
     @Before
     public void setUp() throws Exception {
         sq1= new StringQueue();
-        sq2 = new StringQueue(2);
+        sq2 = new StringQueue(maxSizeTestParameter);
     }
 
     /**
@@ -74,17 +75,55 @@ public class StringQueueTest {
         assertFalse( sq2.offer("3"));
     }
 
-
+    /**
+     * Tests polling from empty StringQueue.
+     * @result Return true, because the queue is empty.
+     */
     @Test
     public void poll() {
+        assertNull(sq1.poll());
+    }
+    /**
+     * Tests polling from StringQueue with an element.
+     * @result Return true, because the queue is not empty.
+     */
+    @Test
+    public void poll2() {
+        sq1.offer("1");
+        assertNotNull(sq1.poll());
+    }
+    /**
+     * Tests polling from StringQueue, after adding and removing one element.
+     * @result Return true, because the queue is empty.
+     */
+    @Test
+    public void poll3() {
+        sq1.offer("1");
+        sq1.poll();
+        assertNull(sq1.poll());
     }
 
+    /**
+     * Tests polling from StringQueue, after adding and removing two element.
+     * @result Return true, because the queue is empty.
+     */
+    @Test
+    public void poll4() {
+        for(int i=0; i<maxSizeTestParameter; i++){
+            sq2.offer(String.valueOf(i));
+        }
+        for(int i=0; i<maxSizeTestParameter; i++){
+            sq2.poll();
+        }
+        assertNull(sq2.poll());
+    }
     @Test
     public void remove() {
     }
 
     @Test
     public void peek() {
+
     }
 
     @Test
