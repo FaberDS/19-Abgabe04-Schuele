@@ -17,7 +17,7 @@ public class StringQueueTest {
     private static int maxSizeTestParameter = 2;
 
     /**
-     * Initilize two instances of StringQueue
+     * Initilize two instances of {@link StringQueue}.
      * @throws Exception
      */
     @Before
@@ -27,7 +27,7 @@ public class StringQueueTest {
     }
 
     /**
-     * Reset the two instances of StringQueue
+     * Reset the two instances of {@link StringQueue}.
      * @throws Exception
      */
     @After
@@ -78,7 +78,7 @@ public class StringQueueTest {
     }
 
     /**
-     * Tests polling from empty StringQueue.
+     * Tests polling from empty instance of {@link StringQueue}.
      * @result Is null, because the queue is empty.
      */
     @Test
@@ -86,7 +86,7 @@ public class StringQueueTest {
         assertNull(sq1.poll());
     }
     /**
-     * Tests polling from StringQueue with an element.
+     * Tests polling from the instance of {@link StringQueue} with an element.
      * @result Return true, because the queue is not empty.
      */
     @Test
@@ -95,7 +95,7 @@ public class StringQueueTest {
         assertNotNull(sq1.poll());
     }
     /**
-     * Tests polling from StringQueue, after adding and removing one element.
+     * Tests polling from the instance of {@link StringQueue}, after {@link StringQueue#offer(String)} and {@link StringQueue#remove()}ing one element.
      * @result Is null, because the queue is empty.
      */
     @Test
@@ -106,7 +106,7 @@ public class StringQueueTest {
     }
 
     /**
-     * Tests polling from StringQueue, after adding and removing two element.
+     * Tests polling from the instance of {@link StringQueue}, after {@link StringQueue#offer(String)} and {@link StringQueue#remove()}ing two element.
      * @result Is null, because the queue is empty.
      */
     @Test
@@ -120,7 +120,7 @@ public class StringQueueTest {
         assertNull(sq2.poll());
     }
     /**
-     * Tests polling from StringQueue, after adding one element.
+     * Tests polling from the instance of {@link StringQueue}, after {@link StringQueue#offer(String)} one element.
      * @result Is equals, because we offer() an element and get the same back.
      */
     @Test
@@ -130,7 +130,7 @@ public class StringQueueTest {
         assertEquals(parameter, sq1.poll());
     }
     /**
-     * Tests polling if the StringQueue is working like the FIFO principal, by adding three elements.
+     * Tests polling if the instance of {@link StringQueue} is working like the FIFO principal, by {@link StringQueue#offer(String)}ing three elements.
      * @result Is equals, because the first offered parameter is tested and the queue works like the FIFO principal.
      */
     @Test
@@ -142,7 +142,7 @@ public class StringQueueTest {
         assertEquals(parameter1, sq1.poll());
     }
     /**
-     * Tests polling from StringQueue, after adding one element.
+     * Tests polling from the instance of {@link StringQueue}, after {@link StringQueue#offer(String)}ing one element.
      * @result Is equals, because we offer() an element and get the same back.
      */
     @Test
@@ -152,7 +152,7 @@ public class StringQueueTest {
         assertEquals(parameter, sq1.poll());
     }
     /**
-     * Tests polling from StringQueue, after adding two elements.
+     * Tests polling from the instance of {@link StringQueue}, after {@link StringQueue#offer(String)}ing two elements.
      * @result Is not same, because after offering two elements we we compare the first passed parmeter.
      */
     @Test
@@ -164,7 +164,7 @@ public class StringQueueTest {
     }
 
     /**
-     * Tests to remove from empty StringQueue.
+     * Tests to remove from empty instance of {@link StringQueue}.
      * @result {@link NoSuchElementException} is thrown.
      */
     @Test (expected = NoSuchElementException.class)
@@ -172,7 +172,7 @@ public class StringQueueTest {
         sq1.remove();
     }
     /**
-     * Tests to remove more elements from  StringQueue than offered.
+     * Tests to remove more elements from the instance of {@link StringQueue} than {@link StringQueue#offer(String)}ed.
      * @result {@link NoSuchElementException} is thrown.
      */
     @Test (expected = NoSuchElementException.class)
@@ -187,7 +187,7 @@ public class StringQueueTest {
     }
 
     /**
-     * Tests the Exception message from NoSuchElementException thrown by StringQueue.remove()
+     * Tests the Exception message from {@link NoSuchElementException} thrown by {@link StringQueue#remove()}
      * @result Is equals.
      */
     @Test (expected = NoSuchElementException.class)
@@ -207,7 +207,7 @@ public class StringQueueTest {
     }
 
     /**
-     * Tests to get the peek() of an empty StringQueue.
+     * Tests to get the {@link StringQueue#peek()} of an empty instance of {@link StringQueue}.
      * @result Is null, because there is no element in the queue.
      */
     @Test
@@ -215,7 +215,7 @@ public class StringQueueTest {
         assertNull(sq1.peek());
     }
     /**
-     * Tests to get the peek() from StringQueue after offering one element.
+     * Tests to get the {@link StringQueue#peek()} from the instance of {@link StringQueue} after {@link StringQueue#offer(String)}ing one element.
      * @result It is equal, because the same element is passed.
      */
     @Test
@@ -225,7 +225,7 @@ public class StringQueueTest {
         assertEquals(statement, sq1.peek());
     }
     /**
-     * Tests to get the peek() from StringQueue after offering two elements. Prove the FIFO principal.
+     * Tests to get the {@link StringQueue#peek()} from the instance of {@link StringQueue} after {@link StringQueue#offer(String)}ing two elements. Prove the FIFO principal.
      * @result It isn't equal, because the the queue returns the first element and not the last offered.
      */
     @Test
@@ -236,7 +236,7 @@ public class StringQueueTest {
         assertNotSame(statement, sq1.peek());
     }
     /**
-     * Tests to get the peek() of StringQueue after offering an element.
+     * Tests to get the peek() from the instance of {@link StringQueue} after {@link StringQueue#offer(String)}ing an element.
      * @result Is not null, because the queue isn't empty.
      */
     @Test
