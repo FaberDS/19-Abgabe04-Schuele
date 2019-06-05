@@ -288,6 +288,7 @@ Github Flavor ist einer der meist verwendeten Markdown Dialekte. Er legt die Syn
 - [Log2f4 Basic](https://www.tutorialspoint.com/log4j/log4j_logging_files.htm)
 - [Maven Site Infos](https://blog.akquinet.de/2012/04/12/maven-sites-reloaded/)
 - [Phyton Basic](https://www.tutorialspoint.com/python/python_if_else.htm)
+- [Customice Maven Site Styling](https://books.sonatype.com/mvnref-book/reference/site-generation.html)
 ### Documents
 
 ***

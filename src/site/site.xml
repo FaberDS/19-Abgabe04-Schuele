@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<project name="Maven">
+<project name="Queue">
     <bannerLeft>
-        <name>Maven</name>
+        <name>Queue</name>
         <src>http://maven.apache.org/images/apache-maven-project.png</src>
         <href>http://maven.apache.org/</href>
     </bannerLeft>
@@ -16,11 +16,25 @@
             <item name="FaberDS-Repository" href="https://github.com/FaberDS/"/>
         </links>
 
-        <menu name="19-Abgabe04-Schuele">
+        <menu name="Queue">
             <item name="Queue" href="queue.html" />
         </menu>
 
         <menu ref="reports"/>
 
     </body>
+
+    <skin>
+        <groupId>org.apache.maven.skins</groupId>
+        <artifactId>maven-fluido-skin</artifactId>
+        <version>1.5</version>
+    </skin>
+
+    <custom>
+        <fluidoSkin>
+            <topBarEnabled>true</topBarEnabled>
+            <sideBarEnabled>false</sideBarEnabled>
+        </fluidoSkin>
+    </custom>
+
 </project>

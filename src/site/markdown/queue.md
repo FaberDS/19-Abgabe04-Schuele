@@ -40,3 +40,8 @@
 #### Links
 > [Queue Dokumentation](http://www.it-academy.cc/article/1026/Grundlegende+Datenstrukturen:+Stacks,+Queues+&+Lists.html)
 
+<skin>
+<groupId>org.apache.maven.skins</groupId>
+<artifactId>maven-fluido-skin</artifactId>
+<version>1.5</version>
+</skin>
