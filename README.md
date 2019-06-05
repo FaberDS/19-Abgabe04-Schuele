@@ -243,11 +243,36 @@ Mithilfe von Maven Site lassen sich die erzeugten Daten angemessen repräsentier
 >  Title und URL ist optional und die [] des alternativ Text können auch leer bleiben.  
 > _Ordnerstruktur für zusätzliche Ressourcen (optional):_
 >  ![Directory Structure for creating manuell Sites](./media/dir_structure_optional.png)
+>
+>  **Maven Fluido Skin**
+>
+>   Um das gesamte Design auf den neuen Standard anzuheben kann Maven Fluido Skin verwendet werden.
+>   Im `<custom>` können Style Parameter gesetzt werden.
 
+>   ```xml
+>    <skin>
+>            <groupId>org.apache.maven.skins</groupId>
+>            <artifactId>maven-fluido-skin</artifactId>
+>            <version>1.5</version>
+>        </skin>
+>    
+>        <custom>
+>            <fluidoSkin>
+>                <topBarEnabled>true</topBarEnabled>
+>                <sideBarEnabled>false</sideBarEnabled>
+>            </fluidoSkin>
+>        </custom>
+>```
 
-
->   **6.3 Ergebnis**
-> ![Screenshot of the manual created maven site](media/maven_site.png)
+>   **6.3 Screenshot der Seiten**
+>
+>   _6.3.1 About_
+>
+>   Standardmäßig ist die About die index.html diese sollte somit als Minimum in der entsprechenden Markup Sprache angepasst werden. 
+>   ![Screenshot of the manual created maven site](media/about_page.png "About Page")
+>   _6.3.2 Queue Subpage_
+>
+>   ![Screenshot of the manual created maven site](media/queue_page.png "Queue Page")
 
 #### 7. Markdown Übung
 Github Flavor ist einer der meist verwendeten Markdown Dialekte. Er legt die Syntax und Semantic fest und wird auf den github domains verwendet.

@@ -59,7 +59,7 @@ public class StringQueue implements Queue {
 	 */
 	@Override
 	public boolean offer(String obj) {
-	    LOGGER.info(mc+"offer.");
+	    LOGGER.info(mc+"Called: offer("+obj+")");
 		if(elements.size()!= maxSize)
 			elements.add(obj);
 		else
