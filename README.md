@@ -274,6 +274,25 @@ Mithilfe von Maven Site lassen sich die erzeugten Daten angemessen repräsentier
 >
 >   ![Screenshot of the manual created maven site](media/queue_page.png "Queue Page")
 
+>   **6.4 Delete Goal**
+>
+>   This plugin runs the clean goal in the initialize phase, to garantie that all files will be build new.
+>   ```xml
+>   <plugin>
+>       <executions>
+>       <artifactId>maven-clean-plugin</artifactId>
+>       <version>3.1.0</version>
+>           <execution>
+>               <id>auto-clean</id>
+>               <phase>initialize</phase>
+>               <goals>
+>                   <goal>clean</goal>
+>               </goals>
+>           </execution>
+>       </executions>
+>   </plugin>
+>```
+
 #### 7. Markdown Übung
 Github Flavor ist einer der meist verwendeten Markdown Dialekte. Er legt die Syntax und Semantic fest und wird auf den github domains verwendet.
 > **7.1 Java Code**

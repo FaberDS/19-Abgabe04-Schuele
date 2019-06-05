@@ -20,17 +20,16 @@ public class StringQueueTest {
      * Initilize two instances of {@link StringQueue}.
      */
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         sq1= new StringQueue();
         sq2 = new StringQueue(maxSizeTestParameter);
     }
 
     /**
      * Reset the two instances of {@link StringQueue}.
-     * @throws Exception
      */
     @After
-    public void tireDown() throws Exception{
+    public void tireDown(){
         sq1=null;
         sq2=null;
     }
@@ -183,6 +182,7 @@ public class StringQueueTest {
     /**
      * Tests to remove more elements from the instance of {@link StringQueue} than {@link StringQueue#offer(String)}ed.
      * @result {@link NoSuchElementException} is thrown.
+     * @throws  NoSuchElementException is expected
      */
     @Test (expected = NoSuchElementException.class)
     public void remove4(){
@@ -198,15 +198,16 @@ public class StringQueueTest {
     /**
      * Tests the Exception message from {@link NoSuchElementException} thrown by {@link StringQueue#remove()}
      * @result Is equals.
+     * @throws  NoSuchElementException is expected
      */
     @Test (expected = NoSuchElementException.class)
-    public void remove5() throws Exception
+    public void remove5() throws NoSuchElementException
     {
         try
         {
             sq1.remove();
         }
-        catch(RuntimeException re)
+        catch(NoSuchElementException re)
         {
             String message = "there's no element any more";
             assertEquals(message, re.getMessage());
@@ -300,16 +301,16 @@ public class StringQueueTest {
     /**
      * Tests the Exception message from {@link NoSuchElementException} thrown by {@link StringQueue#element()}
      * @result Is equals.
-     * @exception Exception
+     * @throws  NoSuchElementException is expected
      */
     @Test (expected = NoSuchElementException.class)
-    public void element4() throws Exception
+    public void element4() throws NoSuchElementException
     {
         try
         {
             sq1.element();
         }
-        catch(RuntimeException re)
+        catch(NoSuchElementException re)
         {
             String message = "there's no element any more";
             assertEquals(message, re.getMessage());
