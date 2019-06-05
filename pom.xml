@@ -8,6 +8,11 @@
     <artifactId>Queue</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <description>
+        StringQueue implemented on a Arraylist.
+    </description>
+
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -117,8 +122,10 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.0</version>
                 <configuration>
-                    <release>11</release>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
+
             </plugin>
 
             <plugin>

@@ -276,7 +276,7 @@ Mithilfe von Maven Site lassen sich die erzeugten Daten angemessen repräsentier
 
 >   **6.4 Delete Goal**
 >
->   This plugin runs the clean goal in the initialize phase, to garantie that all files will be build new.
+>   Dieses Plugin startet das "clean" Goal in der Initialize Phase, somit wird bei jedem Build einmal alles gebuildet.
 >   ```xml
 >   <plugin>
 >       <executions>
