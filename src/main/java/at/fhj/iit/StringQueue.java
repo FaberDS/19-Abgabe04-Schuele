@@ -39,7 +39,7 @@ public class StringQueue implements Queue {
 	 *
 	 */
 	public StringQueue(){
-		LOGGER.info(mc+"StringQueue() - Default Constructor - maxSize="+maxSize);
+		LOGGER.info(mc+"StringQueue() - Default Constructor - maxSize = "+maxSize);
 		this.maxSize = maxSize;
 	}
 
@@ -88,7 +88,7 @@ public class StringQueue implements Queue {
 		if(elements.size() > 0){
 			elements.remove(0);
 		}
-		LOGGER.info(mc+"poll -> return="+element);
+		LOGGER.info(mc+"poll -> return = "+element);
 		return element;
 	}
 

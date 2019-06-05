@@ -196,7 +196,7 @@ Der Logger kann mittels .xml oder .properties File konfiguriert werden ich verwe
 >   Um die Ausgabe zu leiten muss ein appender configuriert werden.
 >   _Ausgabe in ein File:_
 >   ```properties
->       appender.file.type = File
+>        appender.file.type = File
 >        appender.file.name = LOGFILE
 >        appender.file.fileName=${filename}/propertieslogs.log
 >        appender.file.layout.type=PatternLayout
