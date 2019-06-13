@@ -17,7 +17,6 @@
 * [Links/ Literatur](#links-literatur)
 	* [Plugins](#plugins)
 	* [Links](#links)
-	* [Documents](#documents)
 * [To-Do-List:](#to-do-list)
 
 <!-- /code_chunk_output -->
@@ -40,6 +39,9 @@
 </table>
 
 ***
+
+<div style="page-break-after: always"></div>
+
 ## Vorgehen
 #### 1.  To-Do-List übertragen mit MD vertieft
 #### 2.  Bug Suche
@@ -55,9 +57,13 @@
 >
 > _Lösung_:
 >
->`public StringQueue(){ this.maxSize = maxSize; }`
->
->`public StringQueue(int maxSize){ this.maxSize = maxSize;}`
+>```java 
+>public StringQueue(){ this.maxSize = maxSize; }
+>public StringQueue(int maxSize){ this.maxSize = maxSize;}
+>```
+
+<div style="page-break-after: always"></div>
+
 
 > ##### 2.2 Equals 0
 > Wenn die size() 0 retourniert soll ein Element gelöscht werden. Diese if Abfrage führt zu einer _IndexOutOfBoundsException_. 
@@ -67,13 +73,16 @@
 >![error_01 Konstruktor](./media/error_02.png "Equals 0")
 >
 > _Lösung_:
-> `public String poll() {
+> ```java
+>       public String poll() {
 >		String element = peek();
 >		if(elements.size() > 0){
 >			elements.remove(0);
 >		}
 >		return element;
->	}`
+>	    }
+>```
+
 
 > ##### 2.3 Assign to empty string
 > Wenn dem element "" zugewiesen wird. Ist der return-Wert der Methode immer ""
@@ -83,7 +92,10 @@
 >![error_01 Konstruktor](./media/error_03.png "empty string assignment")
 >
 > _Lösung_:
-> `//element = "";`
+> ~~`element = "";`~~
+
+<div style="page-break-after: always"></div>
+
 
 #### 3. Java-Doc Kommentare
 Kommentieren der Klasse, des Interfaces und deren Methoden. 
@@ -102,6 +114,7 @@ Kommentieren der Klasse, des Interfaces und deren Methoden.
 >| {@link "classname[#method name]"}       |   >Um einen Link zur Klasse/ Methode(optional) >zu setzen     |
 >| @throws       |   Der Test wirft diese Exception     |
 
+
 > **3.2 Eigene Tags**
 >Um eigene Tags für die Java-Docs zu verwenden habe ich folgende Konfiguration innerhalb des Maven-Javadoc Plugins hinzugefügt:
 >```xml
@@ -117,8 +130,14 @@ Kommentieren der Klasse, des Interfaces und deren Methoden.
 ></configuration>
 >```
 
+<div style="page-break-after: always"></div>
+
+
 > **3.3 Java-Doc Screenshot**
 >![Java-Docs](./media/java_doc_productive_code.png)
+
+<div style="page-break-after: always"></div>
+
 
 #### 4. JUnit Test
 Schreiben der Tests für die StringQueue Klasse.
@@ -153,8 +172,14 @@ Schreiben der Tests für die StringQueue Klasse.
 >@Test (expected = Exception-Name.class)
 >```
 
+<div style="page-break-after: always"></div>
+
+
 >**4.3 Surefire Report Screenshot**
 >![Java-Docs](./media/surefire_report.png)
+
+<div style="page-break-after: always"></div>
+
 
 #### 5. Log4j2
 Der Log4j2 ermöglicht das loggen während eine Java Application läuft. Sozusagen das überwachen der Aktivitäten.
@@ -175,6 +200,7 @@ Der Logger kann mittels .xml oder .properties File konfiguriert werden ich verwe
 ></dependency>
 >```
 
+
 >   **5.2 How to**
 >
 > Sobald die Voraussetzungen erfüllt sind mittels
@@ -193,6 +219,8 @@ Der Logger kann mittels .xml oder .properties File konfiguriert werden ich verwe
 >```
 >   Diesen kann an den gewünschten Stellen im Code die relevante Nachricht übergeben werden.
 >   Im Beispiel ist der Logger so konfiguriert das die Ausgabe nur auf der Console erfolgt.
+>
+>   <div style="page-break-after: always"></div>
 >
 >   _Formartierung_
 >   `%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L -\t %m\t%n>`
@@ -215,6 +243,8 @@ Der Logger kann mittels .xml oder .properties File konfiguriert werden ich verwe
 >   _Consolenausgabe_:
 > ![Consol Screenshot from the logged methods](media/log4j2_console.png)
 
+<div style="page-break-after: always"></div>
+
 >   **5.4 Ausgabe**
 >
 >   Um die Ausgabe zu leiten muss ein appender configuriert werden.
@@ -232,6 +262,11 @@ Der Logger kann mittels .xml oder .properties File konfiguriert werden ich verwe
 >        logger.file.appenderRefs = file
 >        logger.file.appenderRef.file.ref = LOGFILE
 >```
+
+<div style="page-break-after: always"></div>
+
+<div style="page-break-after: always"></div>
+
 
 #### 6. Maven Site
 Mithilfe von Maven Site lassen sich die erzeugten Daten angemessen repräsentieren ohne größeren Aufwand. Den größten Teil macht der generierte Content von den JUnit-Tests und der Java-Doc aus. Zusätzlich können manuell Seiten hinzugefügt werden. 
@@ -255,6 +290,9 @@ Mithilfe von Maven Site lassen sich die erzeugten Daten angemessen repräsentier
 > <artifactId>maven-project-info-reports-plugin</artifactId>
 > <version>3.0.0</version>
 >````
+
+<div style="page-break-after: always"></div>
+
 
 > **6.2 Optionale Inhalte/ Gestaltung:**
 > Um zusätzlich Bilder oder CSS-Files einzubetten muss innerhalb des site Ordners der resources Ordner mit den Sub-Ordnern css und images angelegt werden. Während des Site Zykluses entnimmt Maven automatisiert den Inhalt dieser Ordner.
@@ -288,15 +326,22 @@ Mithilfe von Maven Site lassen sich die erzeugten Daten angemessen repräsentier
 >        </custom>
 >```
 
+<div style="page-break-after: always"></div>
+
+
 >   **6.3 Screenshot der Seiten**
 >
 >   _6.3.1 About_
 >
 >   Standardmäßig ist die About die index.html diese sollte somit als Minimum in der entsprechenden Markup Sprache angepasst werden. 
 >   ![Screenshot of the manual created maven site](media/about_page.png "About Page")
+><div style="page-break-after: always"></div>
 >   _6.3.2 Queue Subpage_
 >
 >   ![Screenshot of the manual created maven site](media/queue_page.png "Queue Page")
+
+<div style="page-break-after: always"></div>
+
 
 >   **6.4 Delete Goal**
 >
@@ -316,6 +361,9 @@ Mithilfe von Maven Site lassen sich die erzeugten Daten angemessen repräsentier
 >       </executions>
 >   </plugin>
 >```
+
+<div style="page-break-after: always"></div>
+
 
 #### 7. Markdown Übung
 Github Flavor ist einer der meist verwendeten Markdown Dialekte. Er legt die Syntax und Semantic fest und wird auf den github domains verwendet.
@@ -339,6 +387,8 @@ Github Flavor ist einer der meist verwendeten Markdown Dialekte. Er legt die Syn
 >   else:
 >       print "The weather sucks"
 >```
+<div style="page-break-after: always"></div>
+
 ***
 ## Links/ Literatur
 ### Plugins
@@ -357,9 +407,11 @@ Github Flavor ist einer der meist verwendeten Markdown Dialekte. Er legt die Syn
 - [Maven Site Infos](https://blog.akquinet.de/2012/04/12/maven-sites-reloaded/)
 - [Phyton Basic](https://www.tutorialspoint.com/python/python_if_else.htm)
 - [Customice Maven Site Styling](https://books.sonatype.com/mvnref-book/reference/site-generation.html)
-### Documents
+
+<div style="page-break-after: always"></div>
 
 ***
+
 ## To-Do-List:
  - [x] Übertragen Angabe Tasklist in Markdown Readme
  - [x] Einspielen Queue Vorlage aus Repository https://github.com/michaelulm/software-
@@ -394,9 +446,9 @@ configuration-management/tree/master/test-automation/Queue
         - [x] Seite erläutert Funktionsweise Queue
     - [x] Geben Sie ein Bild der Maven Site Dokumentation in den Lab Report
         - [x] Der Inhalt der manuell erstellten Seite sollte ersichtlich sein
-- [ ] Erstellung detaillierter und nachvollziehbarer Markdown Lab Report
+- [x] Erstellung detaillierter und nachvollziehbarer Markdown Lab Report
     - [x] Übertragung Information auf Labreport Template
     - [x] Alle Schritte dieser Übung nachvollziehbar erläutern.
     - [x] Übung Github Flavor: Erstellen Sie einen Codeblock im Dokument, welcher 3 Zeilen Python und 3 Zeilen Java Source Code korrekt darstellt.
-    - [ ] Korrekturlesen Dokumentation
-    - [ ] PDF erstellen (zB. Dillinger)
+    - [x] Korrekturlesen Dokumentation
+    - [x] PDF erstellen (zB. Dillinger)

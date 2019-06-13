@@ -29,7 +29,7 @@ public class StringQueueTest {
      * Reset the two instances of {@link StringQueue}.
      */
     @After
-    public void tireDown(){
+    public void tearDown(){
         sq1=null;
         sq2=null;
     }
